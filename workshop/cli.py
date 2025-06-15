@@ -41,7 +41,7 @@ def main():
 
     args = parser.parse_args()
 
-    df = pd.read_csv('train.csv')
+    df = pd.read_csv('workshop/train.csv')
 
     if args.command == "drop_notes":
         df = drop_notes(df)
