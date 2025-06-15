@@ -12,10 +12,10 @@ def drop_notes(df):
 
 def select_high_ratings(df):
     """
-    Select only rows where the 'rating' column is 90 or higher.
+    Seleciona apenas as linhas onde a coluna 'rating' é 90 ou maior.
     """
-    if 'ratings' in df.columns:
-        df = df[df['ratings'] >= 90]
+    if 'rating' in df.columns:
+        df = df[df['rating'] >= 90]
     return df
 
 
@@ -25,7 +25,8 @@ def drop_and_one_hot_encode_red_wine(df):
     Drop the original 'variety' column.
     """
     if 'variety' in df.columns:
-        df = pd.get_dummies(df, columns=['variety'], prefix='Red Wine', drop_first=True)
+        df['Red_Wine'] = (df['variety'] == 'Red Wine').astype(int)
+        df = df.drop(columns=['variety'])
     return df
 
 
@@ -40,10 +41,10 @@ def remove_newlines_carriage_returns(df):
 
 def convert_ratings_to_int(df):
     """
-    Convert the 'rating' column from float to integer.
+    Converte a coluna 'ratings' de float para inteiro.
     """
-    if 'ratings' in df.columns:
-        df['ratings'] = df['ratings'].to_bool()
+    if 'rating' in df.columns:
+        df['rating'] = df['rating'].astype(int)
     return df
 
 # Example usage
