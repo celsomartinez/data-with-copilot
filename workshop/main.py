@@ -3,7 +3,7 @@ import pandas as pd
 
 def drop_notes(df):
     """
-    Drop the 'notes' column from the DataFrame.
+    Drop the 'notes' column from the DataFrame. Teste
     """
     if 'notes' in df.columns:
         df = df.drop(columns=['notes'])
